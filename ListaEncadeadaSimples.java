@@ -51,8 +51,6 @@ public class ListaEncadeadaSimples {
             for (int i = 0; i < index; i++) {
                 elementoAnterior = elementoAnterior.getProximoElemento();
             }
-
-
             elemento.setProximoElemento(elementoAnterior.getProximoElemento());
             elementoAnterior.setProximoElemento(elemento);
         }
@@ -74,8 +72,6 @@ public class ListaEncadeadaSimples {
             atual.setProximoElemento(null);
         }
         size--;
-
-
     }
 
     public Nodo get(int posicao) {
