@@ -1,6 +1,6 @@
 public class ListaEncadeadaDupla {
     private Nodo head;
-    private Nodo tail;
+    private Nodo Tail;
     private int size;
 
 
@@ -16,12 +16,12 @@ public class ListaEncadeadaDupla {
         this.head = head;
     }
 
-    public Nodo gettail() {
-        return tail;
+    public Nodo getTail() {
+        return Tail;
     }
 
-    public void settail(Nodo tail) {
-        this.tail = tail;
+    public void setTail(Nodo Tail) {
+        this.Tail = Tail;
     }
 
     public int getsize() {
@@ -34,12 +34,12 @@ public class ListaEncadeadaDupla {
 
     public void adicionar(int valor) {
         Nodo elemento = new Nodo(valor, null);
-        if (this.head == null && this.tail == null) {
+        if (this.head == null && this.Tail == null) {
             this.head = elemento;
-            this.tail = elemento;
+            this.Tail = elemento;
         } else {
-            this.tail.setProximoElemento(elemento);
-            this.tail = elemento;
+            this.Tail.setProximoElemento(elemento);
+            this.Tail = elemento;
         }
         size++;
     }
@@ -51,12 +51,12 @@ public class ListaEncadeadaDupla {
             if (atual.getValor() == valor) {
                 if (this.size == 0) {
                     this.head = null;
-                    this.tail = null;
+                    this.Tail = null;
                 } else if (atual == head) {
                     this.head = atual.getProximoElemento();
                     atual.setProximoElemento(null);
-                } else if (atual == tail) {
-                    tail = anterior;
+                } else if (atual == Tail) {
+                    Tail = anterior;
                 } else {
                     anterior.setProximoElemento(atual.getProximoElemento());
                     atual = null;

@@ -34,6 +34,7 @@ public class ListaEncadeadaSimples {
         Nodo elemento = new Nodo(valor, null);
         if (this.size == 0 ) {
             this.head = elemento;
+            elemento.setProximoElemento(head);
         } else {
             this.tail.setProximoElemento(elemento);
         }

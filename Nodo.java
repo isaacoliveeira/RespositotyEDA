@@ -2,9 +2,20 @@ public class Nodo {
     private int valor;
     private Nodo proximoElemento;
 
+    private Nodo anteriorElemento;
+
+
     public Nodo(int valor, Nodo proximoElemento) {
         this.valor = valor;
         this.proximoElemento = proximoElemento;
+    }
+
+    public Nodo getAnteriorElemento() {
+        return anteriorElemento;
+    }
+
+    public void setAnteriorElemento(Nodo anteriorElemento) {
+        this.anteriorElemento = anteriorElemento;
     }
 
     public int getValor() {
@@ -23,11 +34,12 @@ public class Nodo {
         this.proximoElemento = proximoElemento;
     }
 
-    @Override
-    public String toString() {
-        return "Node{" +
-                "valor=" + valor +
-                ", proximoElemento: " + proximoElemento +
-                "}";
-    }
+
+//    @Override
+//    public String toString() {
+//        return "Node{" +
+//                "valor=" + valor +
+//                ", proximoElemento: " + proximoElemento +
+//                "}";
+//    }
 }

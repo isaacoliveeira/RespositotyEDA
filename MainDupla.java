@@ -10,7 +10,7 @@ public class MainDupla {
 
         System.out.println("O tamanho é: " + listaEncadeadaDupla.getsize());
         System.out.println("O primeiro elemento: " + listaEncadeadaDupla.gethead().getValor());
-        System.out.println("O último elemento é: " + listaEncadeadaDupla.gettail().getValor());
+        System.out.println("O último elemento é: " + listaEncadeadaDupla.getTail().getValor());
         System.out.println("o valor da posição buscada é " + listaEncadeadaDupla.get(0).getValor());
 
     }
