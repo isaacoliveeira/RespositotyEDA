@@ -1,3 +1,7 @@
+package src;
+
+import src.Nodo;
+
 public class ListaCircularSimples {
 
     private Nodo head;

@@ -1,3 +1,7 @@
+package src;
+
+import src.ListaCircularDupla;
+
 public class MainListaCircular {
     public static void main(String[] args) {
 

@@ -1,3 +1,5 @@
+package src;
+
 public class MainDupla {
     public static void main(String[] args) {
         ListaEncadeadaDupla listaEncadeadaDupla = new ListaEncadeadaDupla();

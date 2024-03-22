@@ -1,3 +1,5 @@
+package src;
+
 public class Nodo {
     private int valor;
     private Nodo proximoElemento;

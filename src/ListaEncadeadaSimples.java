@@ -1,3 +1,7 @@
+package src;
+
+import src.Nodo;
+
 public class ListaEncadeadaSimples {
 
     private Nodo head;

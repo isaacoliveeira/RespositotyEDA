@@ -1,3 +1,7 @@
+package src;
+
+import src.Nodo;
+
 public class ListaEncadeadaDupla {
     private Nodo head;
     private Nodo Tail;
