@@ -33,7 +33,9 @@ public class MainListaCircular {
         listaCircularSimples.add(1);
         listaCircularSimples.add(4);
         listaCircularSimples.remover(4);
-        listaCircularSimples.remover(5);
+        listaCircularSimples.remover(1);
+        listaCircularSimples.add(8);
+//        listaCircularSimples.remover(2);
 
 
 
@@ -41,6 +43,6 @@ public class MainListaCircular {
         System.out.println("Primeiro elemento: "+ listaCircularSimples.gethead().getValor());
         System.out.println("Segundo elemento: " + listaCircularSimples.gethead().getProximoElemento().getValor());
         System.out.println("Ultimo elemento da lista: " + listaCircularSimples.gethead().getAnteriorElemento().getValor());
-        System.out.println(listaCircularSimples.get(1).getValor());
+
     }
 }

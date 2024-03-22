@@ -64,7 +64,9 @@ public class ListaCircularSimples {
                 } else if (atual.getProximoElemento() == head) {  //ultimo
                     Nodo ultimo = atual;
                     ultimo.setAnteriorElemento(anterior);
+                    anterior.setProximoElemento(proximo);
                     head.setAnteriorElemento(anterior);
+                    head = proximo;
                 } else { //meio
                     proximo.setAnteriorElemento(atual.getAnteriorElemento());
                     anterior.setProximoElemento(proximo);
