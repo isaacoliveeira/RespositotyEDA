@@ -1,26 +1,38 @@
 package src;
 
-import src.Nodo;
-
 public class ListaCircularSimples {
 
     private Nodo head;
+    private Nodo tail;
     private int size;
 
-    public Nodo getHead() {
+
+    public ListaCircularSimples() {
+        this.size = 0;
+    }
+
+    public Nodo gethead() {
         return head;
     }
 
-    public void setHead(Nodo head) {
+    public void sethead(Nodo head) {
         this.head = head;
     }
 
-    public int getSize() {
+//    public Nodo gettail() {
+//        return tail;
+//    }
+//
+//    public void settail(Nodo tail) {
+//        this.tail = tail;
+//    }
+
+    public int getsize() {
         return size;
     }
 
-    public void setSize(int size) {
-        this.size = 0;
+    public void setsize(int size) {
+        this.size = size;
     }
 
     public void add(int valor) {
@@ -28,35 +40,83 @@ public class ListaCircularSimples {
         if (size == 0) {
             this.head = elemento;
         } else {
-            this.head.setProximoElemento(elemento);
+            Nodo anterior = get(size-1);
+            elemento.setProximoElemento(head);
+            anterior.setProximoElemento(elemento);
+            head.setAnteriorElemento(elemento);
         }
         size++;
     }
+
+    public void remover(int valor) {
+        Nodo anterior = null;
+        Nodo atual = this.head;
+        Nodo proximo = atual.getProximoElemento();
+
+        for (int i = 0; i < this.getsize(); i++) {
+            if (atual.getValor() == valor) {
+                if (size == 0) { //nao tiver elemento
+                    this.head = null;
+                } else if (atual == head) { //primeiro
+                    proximo.setAnteriorElemento(atual.getAnteriorElemento());
+                    atual.setProximoElemento(proximo);
+                    head = proximo;
+                } else if (atual.getProximoElemento() == head) {  //ultimo
+                    Nodo ultimo = atual;
+                    ultimo.setAnteriorElemento(anterior);
+                    head.setAnteriorElemento(anterior);
+                } else { //meio
+                    proximo.setAnteriorElemento(atual.getAnteriorElemento());
+                    anterior.setProximoElemento(proximo);
+                }
+                this.size--;
+                break;
+            }
+            anterior = atual;
+            atual = atual.getProximoElemento();
+            proximo = atual.getProximoElemento();
+        }
+    }
+
 
     public void addIndex(int valor, int index) {
         Nodo elemento = new Nodo(valor, null);
-        if ( index == 0) {
-            elemento.setProximoElemento(head);
-            this.head = elemento;
-        } else {
-            Nodo elementoAnterior = new Nodo(valor, null);
-            for (int i = 0; i < index; i++) {
-                elementoAnterior = elementoAnterior.getProximoElemento();
+        if (index == 0) {
+            if (size == 0){
+                head.setAnteriorElemento(elemento);
+                elemento.setProximoElemento(head);
+                head = elemento;
+            } else {
+                Nodo ultimo = head;
+                while (ultimo.getProximoElemento() != head) {
+                    ultimo = ultimo.getProximoElemento();
+                }
+                elemento.setProximoElemento(head);
+                head = elemento;
+                ultimo.setProximoElemento(head);
+                head.setAnteriorElemento(ultimo);
             }
-            elemento.setProximoElemento(elementoAnterior.getProximoElemento());
-            elementoAnterior.setProximoElemento(elemento);
+        } else {
+            Nodo atual = head;
+            for (int i=0; i < index - 1; i++) {
+                atual = atual.getProximoElemento();
+            }
+            Nodo proximo = atual.getProximoElemento();
+            proximo.setAnteriorElemento(elemento);
+            atual.setProximoElemento(elemento);
+            elemento.setProximoElemento(proximo);
+            elemento.setAnteriorElemento(atual);
+
         }
+
         size++;
     }
-
-    public void remove(int valor) {
-
-    }
-
-    public Nodo get(int index) {
+    public Nodo get(int posicao) {
         Nodo atual = this.head;
-        for ( int i = 0; i < index; i++) {
-            atual = atual.getProximoElemento();
+        for ( int i=0; i < posicao; i++) {
+            if (atual.getProximoElemento() != null) {
+                atual = atual.getProximoElemento();
+            }
         }
         return atual;
     }
