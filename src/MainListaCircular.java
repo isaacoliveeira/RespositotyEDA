@@ -43,6 +43,7 @@ public class MainListaCircular {
         System.out.println("Primeiro elemento: "+ listaCircularSimples.gethead().getValor());
         System.out.println("Segundo elemento: " + listaCircularSimples.gethead().getProximoElemento().getValor());
         System.out.println("Ultimo elemento da lista: " + listaCircularSimples.gethead().getAnteriorElemento().getValor());
+        System.out.println("O Anterior do primeiro é: " + listaCircularSimples.gethead().getAnteriorElemento().getValor());
 
     }
 }
